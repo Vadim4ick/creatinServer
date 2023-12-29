@@ -1,7 +1,8 @@
 {
   "collectionName": "components_elements_intro_cards",
   "info": {
-    "displayName": "IntroCard"
+    "displayName": "IntroCard",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,6 +12,14 @@
     },
     "info": {
       "type": "string"
+    },
+    "class": {
+      "type": "enumeration",
+      "enum": [
+        "folders",
+        "spiral",
+        "__image--group"
+      ]
     }
   }
 }

@@ -18,10 +18,12 @@ export interface ElementsIntroCard extends Schema.Component {
   collectionName: 'components_elements_intro_cards';
   info: {
     displayName: 'IntroCard';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
     info: Attribute.String;
+    class: Attribute.Enumeration<['folders', 'spiral', '__image--group']>;
   };
 }
 

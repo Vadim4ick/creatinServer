@@ -1,35 +1,41 @@
 {
   "name": "creatin-project",
-  "private": true,
   "version": "0.1.0",
+  "private": true,
   "description": "A Strapi application",
+  "license": "MIT",
+  "author": {
+    "name": "A Strapi developer"
+  },
   "scripts": {
+    "build": "strapi build",
     "develop": "strapi develop",
     "start": "strapi start",
-    "build": "strapi build",
     "strapi": "strapi"
   },
-  "devDependencies": {},
   "dependencies": {
-    "@strapi/strapi": "4.16.2",
-    "@strapi/plugin-users-permissions": "4.16.2",
-    "@strapi/plugin-i18n": "4.16.2",
     "@strapi/plugin-cloud": "4.16.2",
+    "@strapi/plugin-graphql": "^4.16.2",
+    "@strapi/plugin-i18n": "4.16.2",
+    "@strapi/plugin-users-permissions": "4.16.2",
+    "@strapi/strapi": "4.16.2",
     "better-sqlite3": "8.6.0",
+    "graphql-upload": "^16.0.2",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-router-dom": "5.3.4",
     "styled-components": "5.3.3"
   },
-  "author": {
-    "name": "A Strapi developer"
-  },
-  "strapi": {
-    "uuid": "0355f251-631b-4ad2-b8c7-831e90dfda65"
-  },
   "engines": {
     "node": ">=18.0.0 <=20.x.x",
     "npm": ">=6.0.0"
   },
-  "license": "MIT"
+  "overrides": {
+    "@strapi/plugin-graphql": {
+      "graphql": "15.8.0"
+    }
+  },
+  "strapi": {
+    "uuid": "0355f251-631b-4ad2-b8c7-831e90dfda65"
+  }
 }
