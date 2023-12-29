@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_elements_intro_cards",
+  "info": {
+    "displayName": "IntroCard"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "info": {
+      "type": "string"
+    }
+  }
+}

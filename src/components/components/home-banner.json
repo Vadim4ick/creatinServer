@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_components_home_banners",
+  "info": {
+    "displayName": "HomeBanner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "IntroCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.intro-card",
+      "max": 3
+    }
+  }
+}
