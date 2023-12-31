@@ -37,6 +37,22 @@
         "images",
         "videos"
       ]
+    },
+    "cases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case.case"
+    },
+    "Partners": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.partners",
+      "required": false
+    },
+    "formSend": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.form-send"
     }
   }
 }
