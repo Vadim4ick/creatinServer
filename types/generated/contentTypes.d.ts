@@ -840,8 +840,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   attributes: {
     title: Attribute.String;
     HomeBanner: Attribute.Component<'components.home-banner'>;
-    banner: Attribute.Media;
-    bannerMobile: Attribute.Media;
     cases: Attribute.Relation<
       'api::home-page.home-page',
       'oneToMany',

@@ -20,24 +20,6 @@
       "repeatable": false,
       "component": "components.home-banner"
     },
-    "banner": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
-    },
-    "bannerMobile": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
-    },
     "cases": {
       "type": "relation",
       "relation": "oneToMany",

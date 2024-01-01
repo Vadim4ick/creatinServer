@@ -11,6 +11,9 @@ export interface ComponentsHomeBanner extends Schema.Component {
       Attribute.SetMinMax<{
         max: 3;
       }>;
+    banner: Attribute.Media;
+    bannerMobile: Attribute.Media;
+    bannerMasks: Attribute.Media;
   };
 }
 
