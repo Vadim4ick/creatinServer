@@ -1,0 +1,57 @@
+{
+  "kind": "singleType",
+  "collectionName": "services_pages",
+  "info": {
+    "singularName": "services-page",
+    "pluralName": "services-pages",
+    "displayName": "ServicesPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string",
+      "required": true
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "videos",
+        "images"
+      ]
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "servicesTitle": {
+      "type": "string",
+      "required": true
+    },
+    "servicesDescription": {
+      "type": "text",
+      "required": true
+    },
+    "textBlocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-block"
+    },
+    "banner": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

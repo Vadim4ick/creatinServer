@@ -6,12 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "richtext"
-    },
-    "description": {
-      "type": "text"
-    },
     "address": {
       "type": "string"
     },
@@ -20,6 +14,9 @@
     },
     "number": {
       "type": "biginteger"
+    },
+    "description": {
+      "type": "richtext"
     }
   }
 }

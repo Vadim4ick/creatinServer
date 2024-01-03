@@ -17,6 +17,17 @@ export interface ComponentsHomeBanner extends Schema.Component {
   };
 }
 
+export interface ComponentsTextBlock extends Schema.Component {
+  collectionName: 'components_components_text_blocks';
+  info: {
+    displayName: 'textBlock';
+  };
+  attributes: {
+    titlle: Attribute.String & Attribute.Required;
+    description: Attribute.RichText;
+  };
+}
+
 export interface ElementsIntroCard extends Schema.Component {
   collectionName: 'components_elements_intro_cards';
   info: {
@@ -37,11 +48,10 @@ export interface SectionsFormSend extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.RichText;
-    description: Attribute.Text;
     address: Attribute.String;
     email: Attribute.Email;
     number: Attribute.BigInteger;
+    description: Attribute.RichText;
   };
 }
 
@@ -73,6 +83,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'components.home-banner': ComponentsHomeBanner;
+      'components.text-block': ComponentsTextBlock;
       'elements.intro-card': ElementsIntroCard;
       'sections.form-send': SectionsFormSend;
       'sections.partners': SectionsPartners;
