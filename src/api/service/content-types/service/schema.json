@@ -13,11 +13,50 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
-    },
-    "description": {
       "type": "string",
       "required": true
+    },
+    "video": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
+    },
+    "textBlocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.text-block"
+    },
+    "banner": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "Services": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.services"
+    },
+    "serviceName": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::service-name.service-name",
+      "inversedBy": "service"
+    },
+    "cases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case.case",
+      "mappedBy": "service"
     }
   }
 }

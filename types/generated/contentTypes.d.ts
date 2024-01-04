@@ -784,6 +784,16 @@ export interface ApiCaseCase extends Schema.CollectionType {
     info: Attribute.String & Attribute.Required;
     imageMain: Attribute.Media & Attribute.Required;
     imageBig: Attribute.Media & Attribute.Required;
+    service: Attribute.Relation<
+      'api::case.case',
+      'manyToOne',
+      'api::service.service'
+    >;
+    service_collection: Attribute.Relation<
+      'api::case.case',
+      'manyToOne',
+      'api::service-collection.service-collection'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -865,37 +875,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
-export interface ApiPortfolioPagePortfolioPage extends Schema.SingleType {
-  collectionName: 'portfolio_pages';
-  info: {
-    singularName: 'portfolio-page';
-    pluralName: 'portfolio-pages';
-    displayName: 'PortfolioPage';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::portfolio-page.portfolio-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::portfolio-page.portfolio-page',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiServiceService extends Schema.CollectionType {
   collectionName: 'services';
   info: {
@@ -908,8 +887,22 @@ export interface ApiServiceService extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    video: Attribute.Media;
+    textBlocks: Attribute.Component<'components.text-block', true>;
+    banner: Attribute.Media;
+    description: Attribute.RichText & Attribute.Required;
+    Services: Attribute.Component<'sections.services'>;
+    serviceName: Attribute.Relation<
+      'api::service.service',
+      'oneToOne',
+      'api::service-name.service-name'
+    >;
+    cases: Attribute.Relation<
+      'api::service.service',
+      'oneToMany',
+      'api::case.case'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -928,37 +921,75 @@ export interface ApiServiceService extends Schema.CollectionType {
   };
 }
 
-export interface ApiServicesPageServicesPage extends Schema.SingleType {
-  collectionName: 'services_pages';
+export interface ApiServiceCollectionServiceCollection
+  extends Schema.CollectionType {
+  collectionName: 'service_collections';
   info: {
-    singularName: 'services-page';
-    pluralName: 'services-pages';
-    displayName: 'ServicesPage';
-    description: '';
+    singularName: 'service-collection';
+    pluralName: 'service-collections';
+    displayName: 'ServiceCollection';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String;
-    heading: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    price: Attribute.Integer & Attribute.Required;
     video: Attribute.Media;
-    description: Attribute.RichText & Attribute.Required;
-    servicesTitle: Attribute.String & Attribute.Required;
-    servicesDescription: Attribute.Text & Attribute.Required;
     textBlocks: Attribute.Component<'components.text-block', true>;
+    cases: Attribute.Relation<
+      'api::service-collection.service-collection',
+      'oneToMany',
+      'api::case.case'
+    >;
     banner: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
-      'api::services-page.services-page',
+      'api::service-collection.service-collection',
       'oneToOne',
       'admin::user'
     > &
       Attribute.Private;
     updatedBy: Attribute.Relation<
-      'api::services-page.services-page',
+      'api::service-collection.service-collection',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiServiceNameServiceName extends Schema.CollectionType {
+  collectionName: 'service_names';
+  info: {
+    singularName: 'service-name';
+    pluralName: 'service-names';
+    displayName: 'ServiceName';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    service: Attribute.Relation<
+      'api::service-name.service-name',
+      'oneToOne',
+      'api::service.service'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::service-name.service-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::service-name.service-name',
       'oneToOne',
       'admin::user'
     > &
@@ -987,9 +1018,9 @@ declare module '@strapi/types' {
       'api::case.case': ApiCaseCase;
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
-      'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
       'api::service.service': ApiServiceService;
-      'api::services-page.services-page': ApiServicesPageServicesPage;
+      'api::service-collection.service-collection': ApiServiceCollectionServiceCollection;
+      'api::service-name.service-name': ApiServiceNameServiceName;
     }
   }
 }

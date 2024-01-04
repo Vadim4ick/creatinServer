@@ -41,6 +41,18 @@ export interface ElementsIntroCard extends Schema.Component {
   };
 }
 
+export interface ElementsService extends Schema.Component {
+  collectionName: 'components_elements_services';
+  info: {
+    displayName: 'Service';
+    description: '';
+  };
+  attributes: {
+    titleService: Attribute.String;
+    descriptionService: Attribute.Text;
+  };
+}
+
 export interface SectionsFormSend extends Schema.Component {
   collectionName: 'components_sections_form_sends';
   info: {
@@ -68,6 +80,19 @@ export interface SectionsPartners extends Schema.Component {
   };
 }
 
+export interface SectionsServices extends Schema.Component {
+  collectionName: 'components_sections_services';
+  info: {
+    displayName: 'Services';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    services: Attribute.Component<'elements.service', true>;
+  };
+}
+
 export interface UiLink extends Schema.Component {
   collectionName: 'components_ui_links';
   info: {
@@ -85,8 +110,10 @@ declare module '@strapi/types' {
       'components.home-banner': ComponentsHomeBanner;
       'components.text-block': ComponentsTextBlock;
       'elements.intro-card': ElementsIntroCard;
+      'elements.service': ElementsService;
       'sections.form-send': SectionsFormSend;
       'sections.partners': SectionsPartners;
+      'sections.services': SectionsServices;
       'ui.link': UiLink;
     }
   }
