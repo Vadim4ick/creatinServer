@@ -784,12 +784,54 @@ export interface ApiCaseCase extends Schema.CollectionType {
     info: Attribute.String & Attribute.Required;
     imageMain: Attribute.Media & Attribute.Required;
     imageBig: Attribute.Media & Attribute.Required;
+    Footer: Attribute.Component<'components.footer'>;
+    case_name: Attribute.Relation<
+      'api::case.case',
+      'manyToOne',
+      'api::case-name.case-name'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::case.case', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::case.case', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCaseNameCaseName extends Schema.CollectionType {
+  collectionName: 'case_names';
+  info: {
+    singularName: 'case-name';
+    pluralName: 'case-names';
+    displayName: 'CaseName';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required & Attribute.Unique;
+    cases: Attribute.Relation<
+      'api::case-name.case-name',
+      'oneToMany',
+      'api::case.case'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::case-name.case-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::case-name.case-name',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -961,7 +1003,7 @@ export interface ApiServiceNameServiceName extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
+    name: Attribute.String & Attribute.Unique;
     service: Attribute.Relation<
       'api::service-name.service-name',
       'oneToOne',
@@ -1004,6 +1046,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::case.case': ApiCaseCase;
+      'api::case-name.case-name': ApiCaseNameCaseName;
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::service.service': ApiServiceService;

@@ -35,6 +35,17 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "Footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.footer"
+    },
+    "case_name": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::case-name.case-name",
+      "inversedBy": "cases"
     }
   }
 }

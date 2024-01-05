@@ -14,7 +14,7 @@
   "attributes": {
     "name": {
       "type": "string",
-      "unique": false
+      "unique": true
     },
     "service": {
       "type": "relation",

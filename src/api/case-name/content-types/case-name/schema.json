@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "case_names",
+  "info": {
+    "singularName": "case-name",
+    "pluralName": "case-names",
+    "displayName": "CaseName",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "cases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case.case",
+      "mappedBy": "case_name"
+    }
+  }
+}
