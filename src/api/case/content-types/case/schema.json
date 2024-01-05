@@ -35,18 +35,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "service": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::service.service",
-      "inversedBy": "cases"
-    },
-    "service_collection": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::service-collection.service-collection",
-      "inversedBy": "cases"
     }
   }
 }

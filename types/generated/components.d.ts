@@ -17,6 +17,20 @@ export interface ComponentsHomeBanner extends Schema.Component {
   };
 }
 
+export interface ComponentsSliderCase extends Schema.Component {
+  collectionName: 'components_components_slider_cases';
+  info: {
+    displayName: 'SliderCase';
+  };
+  attributes: {
+    cases: Attribute.Relation<
+      'components.slider-case',
+      'oneToMany',
+      'api::case.case'
+    >;
+  };
+}
+
 export interface ComponentsTextBlock extends Schema.Component {
   collectionName: 'components_components_text_blocks';
   info: {
@@ -41,15 +55,13 @@ export interface ElementsIntroCard extends Schema.Component {
   };
 }
 
-export interface ElementsService extends Schema.Component {
-  collectionName: 'components_elements_services';
+export interface ElementsTitle extends Schema.Component {
+  collectionName: 'components_elements_titles';
   info: {
-    displayName: 'Service';
-    description: '';
+    displayName: 'Title';
   };
   attributes: {
-    titleService: Attribute.String;
-    descriptionService: Attribute.Text;
+    title: Attribute.String & Attribute.Required;
   };
 }
 
@@ -80,6 +92,17 @@ export interface SectionsPartners extends Schema.Component {
   };
 }
 
+export interface SectionsSectionTitles extends Schema.Component {
+  collectionName: 'components_sections_section_titles';
+  info: {
+    displayName: 'SectionTitles';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    titles: Attribute.Component<'elements.title', true>;
+  };
+}
+
 export interface SectionsServices extends Schema.Component {
   collectionName: 'components_sections_services';
   info: {
@@ -89,7 +112,11 @@ export interface SectionsServices extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
-    services: Attribute.Component<'elements.service', true>;
+    service_collections: Attribute.Relation<
+      'sections.services',
+      'oneToMany',
+      'api::service-collection.service-collection'
+    >;
   };
 }
 
@@ -108,11 +135,13 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'components.home-banner': ComponentsHomeBanner;
+      'components.slider-case': ComponentsSliderCase;
       'components.text-block': ComponentsTextBlock;
       'elements.intro-card': ElementsIntroCard;
-      'elements.service': ElementsService;
+      'elements.title': ElementsTitle;
       'sections.form-send': SectionsFormSend;
       'sections.partners': SectionsPartners;
+      'sections.section-titles': SectionsSectionTitles;
       'sections.services': SectionsServices;
       'ui.link': UiLink;
     }

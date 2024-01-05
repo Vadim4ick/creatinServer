@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_components_slider_cases",
+  "info": {
+    "displayName": "SliderCase"
+  },
+  "options": {},
+  "attributes": {
+    "cases": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::case.case"
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_sections_section_titles",
+  "info": {
+    "displayName": "SectionTitles"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "titles": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.title"
+    }
+  }
+}

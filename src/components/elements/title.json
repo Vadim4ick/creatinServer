@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_elements_titles",
+  "info": {
+    "displayName": "Title"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

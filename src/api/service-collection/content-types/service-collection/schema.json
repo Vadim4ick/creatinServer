@@ -4,51 +4,59 @@
   "info": {
     "singularName": "service-collection",
     "pluralName": "service-collections",
-    "displayName": "ServiceCollection"
+    "displayName": "ServiceCollection",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "description": {
-      "type": "text",
-      "required": true
-    },
     "price": {
-      "type": "integer",
+      "type": "biginteger",
       "required": true
     },
     "video": {
-      "allowedTypes": [
-        "videos"
-      ],
       "type": "media",
       "multiple": false,
-      "required": false
+      "required": false,
+      "allowedTypes": [
+        "videos"
+      ]
     },
     "textBlocks": {
       "type": "component",
       "repeatable": true,
       "component": "components.text-block"
     },
-    "cases": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::case.case",
-      "mappedBy": "service_collection"
-    },
     "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "videos"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "sliderCase": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.slider-case"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "deadlines": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.section-titles"
+    },
+    "name": {
+      "type": "string"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "service-name",
     "pluralName": "service-names",
-    "displayName": "ServiceName"
+    "displayName": "ServiceName",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,7 +13,8 @@
   "pluginOptions": {},
   "attributes": {
     "name": {
-      "type": "string"
+      "type": "string",
+      "unique": false
     },
     "service": {
       "type": "relation",

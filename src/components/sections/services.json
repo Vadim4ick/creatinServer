@@ -14,10 +14,10 @@
       "type": "text",
       "required": true
     },
-    "services": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.service"
+    "service_collections": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::service-collection.service-collection"
     }
   }
 }

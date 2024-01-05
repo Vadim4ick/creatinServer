@@ -784,16 +784,6 @@ export interface ApiCaseCase extends Schema.CollectionType {
     info: Attribute.String & Attribute.Required;
     imageMain: Attribute.Media & Attribute.Required;
     imageBig: Attribute.Media & Attribute.Required;
-    service: Attribute.Relation<
-      'api::case.case',
-      'manyToOne',
-      'api::service.service'
-    >;
-    service_collection: Attribute.Relation<
-      'api::case.case',
-      'manyToOne',
-      'api::service-collection.service-collection'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -898,11 +888,7 @@ export interface ApiServiceService extends Schema.CollectionType {
       'oneToOne',
       'api::service-name.service-name'
     >;
-    cases: Attribute.Relation<
-      'api::service.service',
-      'oneToMany',
-      'api::case.case'
-    >;
+    SliderCase: Attribute.Component<'components.slider-case'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -928,22 +914,21 @@ export interface ApiServiceCollectionServiceCollection
     singularName: 'service-collection';
     pluralName: 'service-collections';
     displayName: 'ServiceCollection';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
-    price: Attribute.Integer & Attribute.Required;
+    price: Attribute.BigInteger & Attribute.Required;
     video: Attribute.Media;
     textBlocks: Attribute.Component<'components.text-block', true>;
-    cases: Attribute.Relation<
-      'api::service-collection.service-collection',
-      'oneToMany',
-      'api::case.case'
-    >;
     banner: Attribute.Media;
+    sliderCase: Attribute.Component<'components.slider-case'>;
+    description: Attribute.RichText & Attribute.Required;
+    deadlines: Attribute.String;
+    Title: Attribute.Component<'sections.section-titles'>;
+    name: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -968,6 +953,7 @@ export interface ApiServiceNameServiceName extends Schema.CollectionType {
     singularName: 'service-name';
     pluralName: 'service-names';
     displayName: 'ServiceName';
+    description: '';
   };
   options: {
     draftAndPublish: true;

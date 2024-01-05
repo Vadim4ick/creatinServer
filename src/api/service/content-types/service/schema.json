@@ -14,7 +14,8 @@
   "attributes": {
     "title": {
       "type": "string",
-      "required": true
+      "required": true,
+      "unique": false
     },
     "video": {
       "type": "media",
@@ -52,11 +53,10 @@
       "target": "api::service-name.service-name",
       "inversedBy": "service"
     },
-    "cases": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::case.case",
-      "mappedBy": "service"
+    "SliderCase": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.slider-case"
     }
   }
 }
