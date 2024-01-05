@@ -1,5 +1,17 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface ComponentsFooter extends Schema.Component {
+  collectionName: 'components_components_footers';
+  info: {
+    displayName: 'Footer';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    img: Attribute.Media;
+  };
+}
+
 export interface ComponentsHomeBanner extends Schema.Component {
   collectionName: 'components_components_home_banners';
   info: {
@@ -134,6 +146,7 @@ export interface UiLink extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'components.footer': ComponentsFooter;
       'components.home-banner': ComponentsHomeBanner;
       'components.slider-case': ComponentsSliderCase;
       'components.text-block': ComponentsTextBlock;

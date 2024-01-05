@@ -56,7 +56,13 @@
       "component": "sections.section-titles"
     },
     "name": {
-      "type": "string"
+      "type": "string",
+      "required": true
+    },
+    "Footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.footer"
     }
   }
 }

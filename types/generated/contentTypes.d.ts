@@ -889,6 +889,7 @@ export interface ApiServiceService extends Schema.CollectionType {
       'api::service-name.service-name'
     >;
     SliderCase: Attribute.Component<'components.slider-case'>;
+    Footer: Attribute.Component<'components.footer'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -928,7 +929,8 @@ export interface ApiServiceCollectionServiceCollection
     description: Attribute.RichText & Attribute.Required;
     deadlines: Attribute.String;
     Title: Attribute.Component<'sections.section-titles'>;
-    name: Attribute.String;
+    name: Attribute.String & Attribute.Required;
+    Footer: Attribute.Component<'components.footer'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
