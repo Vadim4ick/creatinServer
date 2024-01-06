@@ -836,6 +836,36 @@ export interface ApiCaseNameCaseName extends Schema.CollectionType {
   };
 }
 
+export interface ApiFormFeedbackFormFeedback extends Schema.SingleType {
+  collectionName: 'form_feedbacks';
+  info: {
+    singularName: 'form-feedback';
+    pluralName: 'form-feedbacks';
+    displayName: 'FormFeedback';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    formFeedback: Attribute.Component<'sections.form-send'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::form-feedback.form-feedback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::form-feedback.form-feedback',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHeaderHeader extends Schema.SingleType {
   collectionName: 'headers';
   info: {
@@ -887,8 +917,6 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       'oneToMany',
       'api::case.case'
     >;
-    Partners: Attribute.Component<'sections.partners'>;
-    formSend: Attribute.Component<'sections.form-send'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -900,6 +928,37 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::home-page.home-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPartnerPartner extends Schema.SingleType {
+  collectionName: 'partners';
+  info: {
+    singularName: 'partner';
+    pluralName: 'partners';
+    displayName: 'Partners';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    partners: Attribute.Component<'sections.partners'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::partner.partner',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::partner.partner',
       'oneToOne',
       'admin::user'
     > &
@@ -1027,6 +1086,43 @@ export interface ApiServiceNameServiceName extends Schema.CollectionType {
   };
 }
 
+export interface ApiStudioStudio extends Schema.SingleType {
+  collectionName: 'studios';
+  info: {
+    singularName: 'studio';
+    pluralName: 'studios';
+    displayName: 'Studio';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    video: Attribute.Media;
+    aboutSection: Attribute.Component<'sections.about-section'>;
+    introCards: Attribute.Component<'elements.intro-card', true> &
+      Attribute.SetMinMax<{
+        max: 4;
+      }>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::studio.studio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::studio.studio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1047,11 +1143,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::case.case': ApiCaseCase;
       'api::case-name.case-name': ApiCaseNameCaseName;
+      'api::form-feedback.form-feedback': ApiFormFeedbackFormFeedback;
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::partner.partner': ApiPartnerPartner;
       'api::service.service': ApiServiceService;
       'api::service-collection.service-collection': ApiServiceCollectionServiceCollection;
       'api::service-name.service-name': ApiServiceNameServiceName;
+      'api::studio.studio': ApiStudioStudio;
     }
   }
 }

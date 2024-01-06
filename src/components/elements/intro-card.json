@@ -18,7 +18,10 @@
       "enum": [
         "folders",
         "spiral",
-        "__image--group"
+        "__image--group",
+        "graph",
+        "trust",
+        "achievement"
       ]
     }
   }

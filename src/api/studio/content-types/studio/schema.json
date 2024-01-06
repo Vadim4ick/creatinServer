@@ -1,0 +1,39 @@
+{
+  "kind": "singleType",
+  "collectionName": "studios",
+  "info": {
+    "singularName": "studio",
+    "pluralName": "studios",
+    "displayName": "Studio",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "aboutSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.about-section"
+    },
+    "introCards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.intro-card",
+      "max": 4
+    }
+  }
+}

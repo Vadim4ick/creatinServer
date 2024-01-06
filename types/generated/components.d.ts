@@ -63,7 +63,9 @@ export interface ElementsIntroCard extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required;
     info: Attribute.String;
-    class: Attribute.Enumeration<['folders', 'spiral', '__image--group']>;
+    class: Attribute.Enumeration<
+      ['folders', 'spiral', '__image--group', 'graph', 'trust', 'achievement']
+    >;
   };
 }
 
@@ -74,6 +76,19 @@ export interface ElementsTitle extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface SectionsAboutSection extends Schema.Component {
+  collectionName: 'components_sections_about_sections';
+  info: {
+    displayName: 'AboutSection';
+  };
+  attributes: {
+    mainTitle: Attribute.String & Attribute.Required;
+    description: Attribute.RichText;
+    aboutTitle: Attribute.String & Attribute.Required;
+    aboutDescription: Attribute.Text & Attribute.Required;
   };
 }
 
@@ -152,6 +167,7 @@ declare module '@strapi/types' {
       'components.text-block': ComponentsTextBlock;
       'elements.intro-card': ElementsIntroCard;
       'elements.title': ElementsTitle;
+      'sections.about-section': SectionsAboutSection;
       'sections.form-send': SectionsFormSend;
       'sections.partners': SectionsPartners;
       'sections.section-titles': SectionsSectionTitles;

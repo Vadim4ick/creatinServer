@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_about_sections",
+  "info": {
+    "displayName": "AboutSection"
+  },
+  "options": {},
+  "attributes": {
+    "mainTitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "aboutTitle": {
+      "type": "string",
+      "required": true
+    },
+    "aboutDescription": {
+      "type": "text",
+      "required": true
+    }
+  }
+}
