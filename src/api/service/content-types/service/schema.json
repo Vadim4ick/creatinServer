@@ -57,11 +57,6 @@
       "type": "component",
       "repeatable": false,
       "component": "components.slider-case"
-    },
-    "Footer": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.footer"
     }
   }
 }

@@ -818,6 +818,7 @@ export interface ApiCaseNameCaseName extends Schema.CollectionType {
       'oneToMany',
       'api::case.case'
     >;
+    footer: Attribute.Component<'components.footer'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -990,7 +991,6 @@ export interface ApiServiceService extends Schema.CollectionType {
       'api::service-name.service-name'
     >;
     SliderCase: Attribute.Component<'components.slider-case'>;
-    Footer: Attribute.Component<'components.footer'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1068,6 +1068,7 @@ export interface ApiServiceNameServiceName extends Schema.CollectionType {
       'oneToOne',
       'api::service.service'
     >;
+    footer: Attribute.Component<'components.footer'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

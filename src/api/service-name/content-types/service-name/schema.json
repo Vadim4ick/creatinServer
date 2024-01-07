@@ -21,6 +21,11 @@
       "relation": "oneToOne",
       "target": "api::service.service",
       "mappedBy": "serviceName"
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.footer"
     }
   }
 }
