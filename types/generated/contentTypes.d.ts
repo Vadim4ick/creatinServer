@@ -1105,6 +1105,7 @@ export interface ApiStudioStudio extends Schema.SingleType {
       Attribute.SetMinMax<{
         max: 4;
       }>;
+    vacancies: Attribute.Component<'components.vacancies'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

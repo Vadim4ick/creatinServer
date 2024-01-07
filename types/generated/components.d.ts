@@ -54,6 +54,22 @@ export interface ComponentsTextBlock extends Schema.Component {
   };
 }
 
+export interface ComponentsVacancies extends Schema.Component {
+  collectionName: 'components_components_vacancies';
+  info: {
+    displayName: 'vacancies';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    image: Attribute.Media;
+    date: Attribute.String;
+    info: Attribute.String;
+    vacancies: Attribute.Component<'elements.vacancy', true>;
+  };
+}
+
 export interface ElementsIntroCard extends Schema.Component {
   collectionName: 'components_elements_intro_cards';
   info: {
@@ -76,6 +92,21 @@ export interface ElementsTitle extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface ElementsVacancy extends Schema.Component {
+  collectionName: 'components_elements_vacancies';
+  info: {
+    displayName: 'vacancy';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    level: Attribute.Enumeration<['middle', 'junior', 'senoir']>;
+    descriptionVacancy: Attribute.RichText & Attribute.Required;
+    btnLink: Attribute.String;
+    telegrammLink: Attribute.String;
   };
 }
 
@@ -165,8 +196,10 @@ declare module '@strapi/types' {
       'components.home-banner': ComponentsHomeBanner;
       'components.slider-case': ComponentsSliderCase;
       'components.text-block': ComponentsTextBlock;
+      'components.vacancies': ComponentsVacancies;
       'elements.intro-card': ElementsIntroCard;
       'elements.title': ElementsTitle;
+      'elements.vacancy': ElementsVacancy;
       'sections.about-section': SectionsAboutSection;
       'sections.form-send': SectionsFormSend;
       'sections.partners': SectionsPartners;

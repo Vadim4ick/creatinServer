@@ -34,6 +34,11 @@
       "repeatable": true,
       "component": "elements.intro-card",
       "max": 4
+    },
+    "vacancies": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.vacancies"
     }
   }
 }

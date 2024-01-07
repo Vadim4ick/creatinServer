@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_elements_vacancies",
+  "info": {
+    "displayName": "vacancy",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "level": {
+      "type": "enumeration",
+      "enum": [
+        "middle",
+        "junior",
+        "senoir"
+      ]
+    },
+    "descriptionVacancy": {
+      "type": "richtext",
+      "required": true
+    },
+    "btnLink": {
+      "type": "string",
+      "required": false
+    },
+    "telegrammLink": {
+      "type": "string",
+      "required": false
+    }
+  }
+}
