@@ -1,0 +1,40 @@
+{
+  "kind": "singleType",
+  "collectionName": "offers_pages",
+  "info": {
+    "singularName": "offers-page",
+    "pluralName": "offers-pages",
+    "displayName": "OffersPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.footer"
+    },
+    "offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offer.offer"
+    },
+    "banner": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

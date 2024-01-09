@@ -85,6 +85,24 @@ export interface ElementsIntroCard extends Schema.Component {
   };
 }
 
+export interface ElementsOffer extends Schema.Component {
+  collectionName: 'components_components_offers';
+  info: {
+    displayName: 'Offer';
+    description: '';
+  };
+  attributes: {
+    img: Attribute.Media & Attribute.Required;
+    price: Attribute.Integer & Attribute.Required;
+    info: Attribute.String;
+    tag: Attribute.String;
+    number: Attribute.String & Attribute.Required;
+    about: Attribute.Text;
+    titleList: Attribute.String;
+    list: Attribute.RichText;
+  };
+}
+
 export interface ElementsTitle extends Schema.Component {
   collectionName: 'components_elements_titles';
   info: {
@@ -249,6 +267,7 @@ declare module '@strapi/types' {
       'components.text-block': ComponentsTextBlock;
       'components.vacancies': ComponentsVacancies;
       'elements.intro-card': ElementsIntroCard;
+      'elements.offer': ElementsOffer;
       'elements.title': ElementsTitle;
       'elements.vacancy': ElementsVacancy;
       'sections.about-section': SectionsAboutSection;

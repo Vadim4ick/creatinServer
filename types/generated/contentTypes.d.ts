@@ -936,6 +936,77 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
+export interface ApiOfferOffer extends Schema.CollectionType {
+  collectionName: 'offers';
+  info: {
+    singularName: 'offer';
+    pluralName: 'offers';
+    displayName: 'Offers';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    offer: Attribute.Component<'elements.offer', true>;
+    name: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::offer.offer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::offer.offer',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiOffersPageOffersPage extends Schema.SingleType {
+  collectionName: 'offers_pages';
+  info: {
+    singularName: 'offers-page';
+    pluralName: 'offers-pages';
+    displayName: 'OffersPage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.RichText;
+    footer: Attribute.Component<'components.footer'>;
+    offers: Attribute.Relation<
+      'api::offers-page.offers-page',
+      'oneToMany',
+      'api::offer.offer'
+    >;
+    banner: Attribute.Media;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::offers-page.offers-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::offers-page.offers-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPartnerPartner extends Schema.SingleType {
   collectionName: 'partners';
   info: {
@@ -1148,6 +1219,8 @@ declare module '@strapi/types' {
       'api::form-feedback.form-feedback': ApiFormFeedbackFormFeedback;
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::offer.offer': ApiOfferOffer;
+      'api::offers-page.offers-page': ApiOffersPageOffersPage;
       'api::partner.partner': ApiPartnerPartner;
       'api::service.service': ApiServiceService;
       'api::service-collection.service-collection': ApiServiceCollectionServiceCollection;

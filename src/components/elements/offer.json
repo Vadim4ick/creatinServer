@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_components_offers",
+  "info": {
+    "displayName": "Offer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "img": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "price": {
+      "type": "integer",
+      "required": true
+    },
+    "info": {
+      "type": "string"
+    },
+    "tag": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string",
+      "required": true
+    },
+    "about": {
+      "type": "text"
+    },
+    "titleList": {
+      "type": "string"
+    },
+    "list": {
+      "type": "richtext"
+    }
+  }
+}
