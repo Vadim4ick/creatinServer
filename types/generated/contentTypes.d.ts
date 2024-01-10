@@ -850,7 +850,7 @@ export interface ApiComplexComplex extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
     offer: Attribute.Component<'elements.offer'>;
     description: Attribute.RichText & Attribute.Required;
     deadlines: Attribute.String & Attribute.Required;
@@ -860,6 +860,7 @@ export interface ApiComplexComplex extends Schema.CollectionType {
       'oneToMany',
       'api::includes-block.includes-block'
     >;
+    footer: Attribute.Component<'components.footer'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
