@@ -25,18 +25,10 @@
       "repeatable": false,
       "component": "components.footer"
     },
-    "banner": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
-    },
-    "complexes": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::complex.complex"
+    "complexBlocks": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.complex-component"
     }
   }
 }

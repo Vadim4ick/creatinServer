@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_components_complex_components",
+  "info": {
+    "displayName": "ComplexComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::complex.complex"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

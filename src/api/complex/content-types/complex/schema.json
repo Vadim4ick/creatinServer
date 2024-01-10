@@ -12,14 +12,36 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "title": {
       "type": "string",
       "required": true
     },
     "offer": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "elements.offer"
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "deadlines": {
+      "type": "string",
+      "required": true
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "includes_blocks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::includes-block.includes-block"
     }
   }
 }

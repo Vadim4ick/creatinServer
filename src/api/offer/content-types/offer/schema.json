@@ -14,12 +14,53 @@
   "attributes": {
     "offer": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "elements.offer"
     },
     "name": {
       "type": "string",
       "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "oldPrice": {
+      "type": "integer",
+      "required": true
+    },
+    "sale": {
+      "type": "integer",
+      "required": true,
+      "max": 99
+    },
+    "video": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "banner": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos"
+      ]
+    },
+    "includes_blocks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::includes-block.includes-block"
+    },
+    "footer": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.footer"
     }
   }
 }

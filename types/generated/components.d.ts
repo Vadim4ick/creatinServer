@@ -1,5 +1,34 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlocksIncludesHover extends Schema.Component {
+  collectionName: 'components_blocks_includes_hovers';
+  info: {
+    displayName: 'includesHover';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    text: Attribute.String & Attribute.Required;
+    subTitle: Attribute.String;
+    list: Attribute.RichText;
+  };
+}
+
+export interface ComponentsComplexComponent extends Schema.Component {
+  collectionName: 'components_components_complex_components';
+  info: {
+    displayName: 'ComplexComponent';
+    description: '';
+  };
+  attributes: {
+    offers: Attribute.Relation<
+      'components.complex-component',
+      'oneToMany',
+      'api::complex.complex'
+    >;
+    name: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface ComponentsFooter extends Schema.Component {
   collectionName: 'components_components_footers';
   info: {
@@ -26,6 +55,22 @@ export interface ComponentsHomeBanner extends Schema.Component {
     banner: Attribute.Media;
     bannerMobile: Attribute.Media;
     bannerMasks: Attribute.Media;
+  };
+}
+
+export interface ComponentsOfferComponent extends Schema.Component {
+  collectionName: 'components_components_offer_components';
+  info: {
+    displayName: 'OfferComponent';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    offers: Attribute.Relation<
+      'components.offer-component',
+      'oneToMany',
+      'api::offer.offer'
+    >;
   };
 }
 
@@ -67,6 +112,18 @@ export interface ComponentsVacancies extends Schema.Component {
     date: Attribute.String;
     info: Attribute.String;
     vacancies: Attribute.Component<'elements.vacancy', true>;
+  };
+}
+
+export interface ElementsIncludesContent extends Schema.Component {
+  collectionName: 'components_elements_includes_contents';
+  info: {
+    displayName: 'includesContent';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    content: Attribute.RichText & Attribute.Required;
   };
 }
 
@@ -261,11 +318,15 @@ export interface UiLink extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'blocks.includes-hover': BlocksIncludesHover;
+      'components.complex-component': ComponentsComplexComponent;
       'components.footer': ComponentsFooter;
       'components.home-banner': ComponentsHomeBanner;
+      'components.offer-component': ComponentsOfferComponent;
       'components.slider-case': ComponentsSliderCase;
       'components.text-block': ComponentsTextBlock;
       'components.vacancies': ComponentsVacancies;
+      'elements.includes-content': ElementsIncludesContent;
       'elements.intro-card': ElementsIntroCard;
       'elements.offer': ElementsOffer;
       'elements.title': ElementsTitle;

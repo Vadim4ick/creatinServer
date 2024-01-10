@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_components_offer_components",
+  "info": {
+    "displayName": "OfferComponent",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "offers": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::offer.offer"
+    }
+  }
+}

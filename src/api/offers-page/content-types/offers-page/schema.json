@@ -23,26 +23,18 @@
       "repeatable": false,
       "component": "components.footer"
     },
-    "offers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::offer.offer"
+    "offersBlock": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.offer-component"
     },
-    "banner": {
+    "img": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "videos"
-      ]
-    },
-    "img": {
-      "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

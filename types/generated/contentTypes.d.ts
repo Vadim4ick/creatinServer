@@ -850,8 +850,16 @@ export interface ApiComplexComplex extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String & Attribute.Required;
-    offer: Attribute.Component<'elements.offer', true>;
+    title: Attribute.String & Attribute.Required;
+    offer: Attribute.Component<'elements.offer'>;
+    description: Attribute.RichText & Attribute.Required;
+    deadlines: Attribute.String & Attribute.Required;
+    banner: Attribute.Media;
+    includes_blocks: Attribute.Relation<
+      'api::complex.complex',
+      'oneToMany',
+      'api::includes-block.includes-block'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -885,12 +893,7 @@ export interface ApiComplexAccompanyComplexAccompany extends Schema.SingleType {
     title: Attribute.String & Attribute.Required;
     description: Attribute.RichText & Attribute.Required;
     footer: Attribute.Component<'components.footer'>;
-    banner: Attribute.Media;
-    complexes: Attribute.Relation<
-      'api::complex-accompany.complex-accompany',
-      'oneToMany',
-      'api::complex.complex'
-    >;
+    complexBlocks: Attribute.Component<'components.complex-component', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1008,6 +1011,39 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
   };
 }
 
+export interface ApiIncludesBlockIncludesBlock extends Schema.CollectionType {
+  collectionName: 'includes_blocks';
+  info: {
+    singularName: 'includes-block';
+    pluralName: 'includes-blocks';
+    displayName: 'IncludesBlock';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    includesContent: Attribute.Component<'elements.includes-content', true>;
+    blockHover: Attribute.Component<'blocks.includes-hover'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::includes-block.includes-block',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::includes-block.includes-block',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOfferOffer extends Schema.CollectionType {
   collectionName: 'offers';
   info: {
@@ -1020,8 +1056,23 @@ export interface ApiOfferOffer extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    offer: Attribute.Component<'elements.offer', true>;
+    offer: Attribute.Component<'elements.offer'>;
     name: Attribute.String & Attribute.Required;
+    description: Attribute.RichText & Attribute.Required;
+    oldPrice: Attribute.Integer & Attribute.Required;
+    sale: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<{
+        max: 99;
+      }>;
+    video: Attribute.Media;
+    banner: Attribute.Media;
+    includes_blocks: Attribute.Relation<
+      'api::offer.offer',
+      'oneToMany',
+      'api::includes-block.includes-block'
+    >;
+    footer: Attribute.Component<'components.footer'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1055,12 +1106,7 @@ export interface ApiOffersPageOffersPage extends Schema.SingleType {
     title: Attribute.String;
     description: Attribute.RichText;
     footer: Attribute.Component<'components.footer'>;
-    offers: Attribute.Relation<
-      'api::offers-page.offers-page',
-      'oneToMany',
-      'api::offer.offer'
-    >;
-    banner: Attribute.Media;
+    offersBlock: Attribute.Component<'components.offer-component', true>;
     img: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1295,6 +1341,7 @@ declare module '@strapi/types' {
       'api::form-feedback.form-feedback': ApiFormFeedbackFormFeedback;
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
+      'api::includes-block.includes-block': ApiIncludesBlockIncludesBlock;
       'api::offer.offer': ApiOfferOffer;
       'api::offers-page.offers-page': ApiOffersPageOffersPage;
       'api::partner.partner': ApiPartnerPartner;
