@@ -819,6 +819,7 @@ export interface ApiCaseNameCaseName extends Schema.CollectionType {
       'api::case.case'
     >;
     footer: Attribute.Component<'components.footer'>;
+    nameID: Attribute.UID<'api::case-name.case-name', 'name'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -830,6 +831,77 @@ export interface ApiCaseNameCaseName extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::case-name.case-name',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiComplexComplex extends Schema.CollectionType {
+  collectionName: 'complexes';
+  info: {
+    singularName: 'complex';
+    pluralName: 'complexes';
+    displayName: 'Complex';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    offer: Attribute.Component<'elements.offer', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::complex.complex',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::complex.complex',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiComplexAccompanyComplexAccompany extends Schema.SingleType {
+  collectionName: 'complex_accompanies';
+  info: {
+    singularName: 'complex-accompany';
+    pluralName: 'complex-accompanies';
+    displayName: 'ComplexAccompany';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText & Attribute.Required;
+    footer: Attribute.Component<'components.footer'>;
+    banner: Attribute.Media;
+    complexes: Attribute.Relation<
+      'api::complex-accompany.complex-accompany',
+      'oneToMany',
+      'api::complex.complex'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::complex-accompany.complex-accompany',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::complex-accompany.complex-accompany',
       'oneToOne',
       'admin::user'
     > &
@@ -989,6 +1061,7 @@ export interface ApiOffersPageOffersPage extends Schema.SingleType {
       'api::offer.offer'
     >;
     banner: Attribute.Media;
+    img: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1140,6 +1213,7 @@ export interface ApiServiceNameServiceName extends Schema.CollectionType {
       'api::service.service'
     >;
     footer: Attribute.Component<'components.footer'>;
+    nameID: Attribute.UID<'api::service-name.service-name', 'name'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1216,6 +1290,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::case.case': ApiCaseCase;
       'api::case-name.case-name': ApiCaseNameCaseName;
+      'api::complex.complex': ApiComplexComplex;
+      'api::complex-accompany.complex-accompany': ApiComplexAccompanyComplexAccompany;
       'api::form-feedback.form-feedback': ApiFormFeedbackFormFeedback;
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;

@@ -26,6 +26,10 @@
       "type": "component",
       "repeatable": false,
       "component": "components.footer"
+    },
+    "nameID": {
+      "type": "uid",
+      "targetField": "name"
     }
   }
 }

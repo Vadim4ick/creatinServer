@@ -1,10 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "offers_pages",
+  "collectionName": "complex_accompanies",
   "info": {
-    "singularName": "offers-page",
-    "pluralName": "offers-pages",
-    "displayName": "OffersPage",
+    "singularName": "complex-accompany",
+    "pluralName": "complex-accompanies",
+    "displayName": "ComplexAccompany",
     "description": ""
   },
   "options": {
@@ -13,36 +13,30 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "richtext"
+      "type": "richtext",
+      "required": true
     },
     "footer": {
       "type": "component",
       "repeatable": false,
       "component": "components.footer"
     },
-    "offers": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::offer.offer"
-    },
     "banner": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "videos"
+        "images"
       ]
     },
-    "img": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "complexes": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::complex.complex"
     }
   }
 }

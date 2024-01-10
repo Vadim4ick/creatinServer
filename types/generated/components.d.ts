@@ -94,8 +94,8 @@ export interface ElementsOffer extends Schema.Component {
   attributes: {
     img: Attribute.Media & Attribute.Required;
     price: Attribute.Integer & Attribute.Required;
-    info: Attribute.String;
-    tag: Attribute.String;
+    info: Attribute.Text;
+    tag: Attribute.Text;
     number: Attribute.String & Attribute.Required;
     about: Attribute.Text;
     titleList: Attribute.String;
