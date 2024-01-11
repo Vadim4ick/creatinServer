@@ -1,5 +1,16 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface BlocksCaseTextBlock extends Schema.Component {
+  collectionName: 'components_blocks_case_text_blocks';
+  info: {
+    displayName: 'caseTextBlock';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText & Attribute.Required;
+  };
+}
+
 export interface BlocksIncludesHover extends Schema.Component {
   collectionName: 'components_blocks_includes_hovers';
   info: {
@@ -10,6 +21,19 @@ export interface BlocksIncludesHover extends Schema.Component {
     text: Attribute.String & Attribute.Required;
     subTitle: Attribute.String;
     list: Attribute.RichText;
+  };
+}
+
+export interface ComponentsCaseComponent extends Schema.Component {
+  collectionName: 'components_components_case_components';
+  info: {
+    displayName: 'CaseComponent';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.RichText & Attribute.Required;
+    caseTextBlock: Attribute.Component<'blocks.case-text-block', true>;
   };
 }
 
@@ -318,7 +342,9 @@ export interface UiLink extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'blocks.case-text-block': BlocksCaseTextBlock;
       'blocks.includes-hover': BlocksIncludesHover;
+      'components.case-component': ComponentsCaseComponent;
       'components.complex-component': ComponentsComplexComponent;
       'components.footer': ComponentsFooter;
       'components.home-banner': ComponentsHomeBanner;

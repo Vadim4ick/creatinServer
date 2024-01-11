@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-01-10T20:30:42.699Z"
+    "x-generation-date": "2024-01-11T14:29:48.037Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3377,6 +3377,9 @@
               },
               "footer": {
                 "$ref": "#/components/schemas/ComponentsFooterComponent"
+              },
+              "totalHours": {
+                "type": "integer"
               }
             }
           }
@@ -3696,6 +3699,9 @@
           },
           "footer": {
             "$ref": "#/components/schemas/ComponentsFooterComponent"
+          },
+          "totalHours": {
+            "type": "integer"
           },
           "createdAt": {
             "type": "string",
@@ -5180,6 +5186,9 @@
                               }
                             }
                           }
+                        },
+                        "totalHours": {
+                          "type": "integer"
                         },
                         "createdAt": {
                           "type": "string",

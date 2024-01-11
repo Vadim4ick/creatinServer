@@ -861,6 +861,7 @@ export interface ApiComplexComplex extends Schema.CollectionType {
       'api::includes-block.includes-block'
     >;
     footer: Attribute.Component<'components.footer'>;
+    totalHours: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

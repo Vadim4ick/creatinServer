@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blocks_case_text_blocks",
+  "info": {
+    "displayName": "caseTextBlock"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    }
+  }
+}
