@@ -1,16 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface BlocksCaseTextBlock extends Schema.Component {
-  collectionName: 'components_blocks_case_text_blocks';
-  info: {
-    displayName: 'caseTextBlock';
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.RichText & Attribute.Required;
-  };
-}
-
 export interface BlocksIncludesHover extends Schema.Component {
   collectionName: 'components_blocks_includes_hovers';
   info: {
@@ -24,16 +13,55 @@ export interface BlocksIncludesHover extends Schema.Component {
   };
 }
 
-export interface ComponentsCaseComponent extends Schema.Component {
-  collectionName: 'components_components_case_components';
+export interface CaseBlocksFirstBlock extends Schema.Component {
+  collectionName: 'components_case_blocks_first_blocks';
   info: {
-    displayName: 'CaseComponent';
+    displayName: 'firstBlock';
     description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    description: Attribute.RichText & Attribute.Required;
-    caseTextBlock: Attribute.Component<'blocks.case-text-block', true>;
+    images: Attribute.Media;
+    textBlock: Attribute.Component<'components.text-block'> &
+      Attribute.Required;
+  };
+}
+
+export interface CaseBlocksFourthBlock extends Schema.Component {
+  collectionName: 'components_case_blocks_fourth_blocks';
+  info: {
+    displayName: 'fourthBlock';
+  };
+  attributes: {
+    images: Attribute.Media & Attribute.Required;
+    gridImages: Attribute.Media & Attribute.Required;
+    textBlock: Attribute.Component<'components.text-block'>;
+  };
+}
+
+export interface CaseBlocksHeadBlocks extends Schema.Component {
+  collectionName: 'components_case_blocks_head_blocks';
+  info: {
+    displayName: 'headBlocks';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.RichText;
+    description: Attribute.RichText;
+    mainImage: Attribute.Media;
+    subTitleImage: Attribute.Media;
+    textBlocks: Attribute.Component<'components.text-block', true>;
+  };
+}
+
+export interface CaseBlocksSecondBlock extends Schema.Component {
+  collectionName: 'components_case_blocks_second_blocks';
+  info: {
+    displayName: 'secondBlock';
+    description: '';
+  };
+  attributes: {
+    images: Attribute.Media & Attribute.Required;
+    textBlock: Attribute.Component<'components.text-block'>;
   };
 }
 
@@ -342,9 +370,11 @@ export interface UiLink extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'blocks.case-text-block': BlocksCaseTextBlock;
       'blocks.includes-hover': BlocksIncludesHover;
-      'components.case-component': ComponentsCaseComponent;
+      'case-blocks.first-block': CaseBlocksFirstBlock;
+      'case-blocks.fourth-block': CaseBlocksFourthBlock;
+      'case-blocks.head-blocks': CaseBlocksHeadBlocks;
+      'case-blocks.second-block': CaseBlocksSecondBlock;
       'components.complex-component': ComponentsComplexComponent;
       'components.footer': ComponentsFooter;
       'components.home-banner': ComponentsHomeBanner;

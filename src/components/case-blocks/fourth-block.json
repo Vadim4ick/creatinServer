@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_case_blocks_fourth_blocks",
+  "info": {
+    "displayName": "fourthBlock"
+  },
+  "options": {},
+  "attributes": {
+    "images": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "gridImages": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    },
+    "textBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "components.text-block"
+    }
+  }
+}

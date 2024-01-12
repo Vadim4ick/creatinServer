@@ -790,6 +790,10 @@ export interface ApiCaseCase extends Schema.CollectionType {
       'manyToOne',
       'api::case-name.case-name'
     >;
+    headBlock: Attribute.Component<'case-blocks.head-blocks'>;
+    firstBlock: Attribute.Component<'case-blocks.first-block'>;
+    secondBlock: Attribute.Component<'case-blocks.second-block'>;
+    fourthBlock: Attribute.Component<'case-blocks.fourth-block'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

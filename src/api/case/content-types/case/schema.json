@@ -46,6 +46,26 @@
       "relation": "manyToOne",
       "target": "api::case-name.case-name",
       "inversedBy": "cases"
+    },
+    "headBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "case-blocks.head-blocks"
+    },
+    "firstBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "case-blocks.first-block"
+    },
+    "secondBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "case-blocks.second-block"
+    },
+    "fourthBlock": {
+      "type": "component",
+      "repeatable": false,
+      "component": "case-blocks.fourth-block"
     }
   }
 }
