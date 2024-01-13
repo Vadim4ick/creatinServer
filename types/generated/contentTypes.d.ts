@@ -790,10 +790,15 @@ export interface ApiCaseCase extends Schema.CollectionType {
       'manyToOne',
       'api::case-name.case-name'
     >;
-    headBlock: Attribute.Component<'case-blocks.head-blocks'>;
-    firstBlock: Attribute.Component<'case-blocks.first-block'>;
-    secondBlock: Attribute.Component<'case-blocks.second-block'>;
-    fourthBlock: Attribute.Component<'case-blocks.fourth-block'>;
+    content: Attribute.DynamicZone<
+      [
+        'image-blocks.double-image',
+        'image-blocks.grid-image',
+        'image-blocks.one-image',
+        'image-blocks.text-block'
+      ]
+    > &
+      Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -900,6 +905,7 @@ export interface ApiComplexAccompanyComplexAccompany extends Schema.SingleType {
     description: Attribute.RichText & Attribute.Required;
     footer: Attribute.Component<'components.footer'>;
     complexBlocks: Attribute.Component<'components.complex-component', true>;
+    banner: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1114,6 +1120,7 @@ export interface ApiOffersPageOffersPage extends Schema.SingleType {
     footer: Attribute.Component<'components.footer'>;
     offersBlock: Attribute.Component<'components.offer-component', true>;
     img: Attribute.Media;
+    banner: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

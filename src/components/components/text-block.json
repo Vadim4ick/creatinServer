@@ -1,7 +1,8 @@
 {
   "collectionName": "components_components_text_blocks",
   "info": {
-    "displayName": "textBlock"
+    "displayName": "textBlock",
+    "description": ""
   },
   "options": {},
   "attributes": {

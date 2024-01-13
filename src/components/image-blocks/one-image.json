@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_image_blocks_one_images",
+  "info": {
+    "displayName": "oneImage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "idBlock": {
+      "type": "string",
+      "default": "oneImage",
+      "required": true
+    }
+  }
+}

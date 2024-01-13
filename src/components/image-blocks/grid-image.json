@@ -1,0 +1,47 @@
+{
+  "collectionName": "components_image_blocks_grid_images",
+  "info": {
+    "displayName": "gridImage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "oneImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "twoImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "threeImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "idBlock": {
+      "type": "string",
+      "required": true,
+      "default": "gridImage"
+    },
+    "streech": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ],
+      "default": "left"
+    }
+  }
+}

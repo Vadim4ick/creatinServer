@@ -13,58 +13,6 @@ export interface BlocksIncludesHover extends Schema.Component {
   };
 }
 
-export interface CaseBlocksFirstBlock extends Schema.Component {
-  collectionName: 'components_case_blocks_first_blocks';
-  info: {
-    displayName: 'firstBlock';
-    description: '';
-  };
-  attributes: {
-    images: Attribute.Media;
-    textBlock: Attribute.Component<'components.text-block'> &
-      Attribute.Required;
-  };
-}
-
-export interface CaseBlocksFourthBlock extends Schema.Component {
-  collectionName: 'components_case_blocks_fourth_blocks';
-  info: {
-    displayName: 'fourthBlock';
-  };
-  attributes: {
-    images: Attribute.Media & Attribute.Required;
-    gridImages: Attribute.Media & Attribute.Required;
-    textBlock: Attribute.Component<'components.text-block'>;
-  };
-}
-
-export interface CaseBlocksHeadBlocks extends Schema.Component {
-  collectionName: 'components_case_blocks_head_blocks';
-  info: {
-    displayName: 'headBlocks';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.RichText;
-    description: Attribute.RichText;
-    mainImage: Attribute.Media;
-    subTitleImage: Attribute.Media;
-    textBlocks: Attribute.Component<'components.text-block', true>;
-  };
-}
-
-export interface CaseBlocksSecondBlock extends Schema.Component {
-  collectionName: 'components_case_blocks_second_blocks';
-  info: {
-    displayName: 'secondBlock';
-    description: '';
-  };
-  attributes: {
-    images: Attribute.Media & Attribute.Required;
-    textBlock: Attribute.Component<'components.text-block'>;
-  };
-}
-
 export interface ComponentsComplexComponent extends Schema.Component {
   collectionName: 'components_components_complex_components';
   info: {
@@ -144,6 +92,7 @@ export interface ComponentsTextBlock extends Schema.Component {
   collectionName: 'components_components_text_blocks';
   info: {
     displayName: 'textBlock';
+    description: '';
   };
   attributes: {
     titlle: Attribute.String & Attribute.Required;
@@ -234,6 +183,71 @@ export interface ElementsVacancy extends Schema.Component {
     descriptionVacancy: Attribute.RichText & Attribute.Required;
     btnLink: Attribute.String;
     telegrammLink: Attribute.String;
+  };
+}
+
+export interface ImageBlocksDoubleImage extends Schema.Component {
+  collectionName: 'components_image_blocks_double_images';
+  info: {
+    displayName: 'doubleImage';
+    description: '';
+  };
+  attributes: {
+    imageOne: Attribute.Media & Attribute.Required;
+    imageTwo: Attribute.Media;
+    idBlock: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'doubleImage'>;
+  };
+}
+
+export interface ImageBlocksGridImage extends Schema.Component {
+  collectionName: 'components_image_blocks_grid_images';
+  info: {
+    displayName: 'gridImage';
+    description: '';
+  };
+  attributes: {
+    oneImage: Attribute.Media & Attribute.Required;
+    twoImage: Attribute.Media & Attribute.Required;
+    threeImage: Attribute.Media & Attribute.Required;
+    idBlock: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'gridImage'>;
+    streech: Attribute.Enumeration<['left', 'right']> &
+      Attribute.DefaultTo<'left'>;
+  };
+}
+
+export interface ImageBlocksOneImage extends Schema.Component {
+  collectionName: 'components_image_blocks_one_images';
+  info: {
+    displayName: 'oneImage';
+    description: '';
+  };
+  attributes: {
+    image: Attribute.Media;
+    idBlock: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'oneImage'>;
+  };
+}
+
+export interface ImageBlocksTextBlock extends Schema.Component {
+  collectionName: 'components_image_blocks_text_blocks';
+  info: {
+    displayName: 'textBlock';
+    description: '';
+  };
+  attributes: {
+    description: Attribute.RichText & Attribute.Required;
+    idBlock: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'textBlock'>;
+    type: Attribute.Enumeration<['textBlock', 'titleBlock', 'infoBlock']> &
+      Attribute.DefaultTo<'textBlock'>;
+    title: Attribute.RichText & Attribute.Required;
+    desctopMaxWidth: Attribute.Integer;
   };
 }
 
@@ -371,10 +385,6 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'blocks.includes-hover': BlocksIncludesHover;
-      'case-blocks.first-block': CaseBlocksFirstBlock;
-      'case-blocks.fourth-block': CaseBlocksFourthBlock;
-      'case-blocks.head-blocks': CaseBlocksHeadBlocks;
-      'case-blocks.second-block': CaseBlocksSecondBlock;
       'components.complex-component': ComponentsComplexComponent;
       'components.footer': ComponentsFooter;
       'components.home-banner': ComponentsHomeBanner;
@@ -387,6 +397,10 @@ declare module '@strapi/types' {
       'elements.offer': ElementsOffer;
       'elements.title': ElementsTitle;
       'elements.vacancy': ElementsVacancy;
+      'image-blocks.double-image': ImageBlocksDoubleImage;
+      'image-blocks.grid-image': ImageBlocksGridImage;
+      'image-blocks.one-image': ImageBlocksOneImage;
+      'image-blocks.text-block': ImageBlocksTextBlock;
       'sections.about-section': SectionsAboutSection;
       'sections.form-send': SectionsFormSend;
       'sections.partners': SectionsPartners;

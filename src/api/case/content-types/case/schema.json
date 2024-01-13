@@ -47,25 +47,15 @@
       "target": "api::case-name.case-name",
       "inversedBy": "cases"
     },
-    "headBlock": {
-      "type": "component",
-      "repeatable": false,
-      "component": "case-blocks.head-blocks"
-    },
-    "firstBlock": {
-      "type": "component",
-      "repeatable": false,
-      "component": "case-blocks.first-block"
-    },
-    "secondBlock": {
-      "type": "component",
-      "repeatable": false,
-      "component": "case-blocks.second-block"
-    },
-    "fourthBlock": {
-      "type": "component",
-      "repeatable": false,
-      "component": "case-blocks.fourth-block"
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "image-blocks.double-image",
+        "image-blocks.grid-image",
+        "image-blocks.one-image",
+        "image-blocks.text-block"
+      ],
+      "required": true
     }
   }
 }

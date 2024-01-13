@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_image_blocks_text_blocks",
+  "info": {
+    "displayName": "textBlock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "idBlock": {
+      "type": "string",
+      "default": "textBlock",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "textBlock",
+        "titleBlock",
+        "infoBlock"
+      ],
+      "default": "textBlock"
+    },
+    "title": {
+      "type": "richtext",
+      "required": true
+    },
+    "desctopMaxWidth": {
+      "type": "integer"
+    }
+  }
+}

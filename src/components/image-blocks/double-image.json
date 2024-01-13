@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_image_blocks_double_images",
+  "info": {
+    "displayName": "doubleImage",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "imageOne": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "imageTwo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "idBlock": {
+      "type": "string",
+      "required": true,
+      "default": "doubleImage"
+    }
+  }
+}
