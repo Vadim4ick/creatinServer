@@ -23,11 +23,6 @@
       "target": "api::case.case",
       "mappedBy": "case_name"
     },
-    "footer": {
-      "type": "component",
-      "repeatable": false,
-      "component": "components.footer"
-    },
     "nameID": {
       "type": "uid",
       "targetField": "name"

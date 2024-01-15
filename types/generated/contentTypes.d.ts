@@ -799,6 +799,7 @@ export interface ApiCaseCase extends Schema.CollectionType {
       ]
     > &
       Attribute.Required;
+    mobileName: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -827,7 +828,6 @@ export interface ApiCaseNameCaseName extends Schema.CollectionType {
       'oneToMany',
       'api::case.case'
     >;
-    footer: Attribute.Component<'components.footer'>;
     nameID: Attribute.UID<'api::case-name.case-name', 'name'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1049,6 +1049,37 @@ export interface ApiIncludesBlockIncludesBlock extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::includes-block.includes-block',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMobileNavigationMobileNavigation extends Schema.SingleType {
+  collectionName: 'mobile_navigations';
+  info: {
+    singularName: 'mobile-navigation';
+    pluralName: 'mobile-navigations';
+    displayName: 'MobileNavigation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    mobileLink: Attribute.Component<'ui.mobile-link', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::mobile-navigation.mobile-navigation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::mobile-navigation.mobile-navigation',
       'oneToOne',
       'admin::user'
     > &
@@ -1355,6 +1386,7 @@ declare module '@strapi/types' {
       'api::header.header': ApiHeaderHeader;
       'api::home-page.home-page': ApiHomePageHomePage;
       'api::includes-block.includes-block': ApiIncludesBlockIncludesBlock;
+      'api::mobile-navigation.mobile-navigation': ApiMobileNavigationMobileNavigation;
       'api::offer.offer': ApiOfferOffer;
       'api::offers-page.offers-page': ApiOffersPageOffersPage;
       'api::partner.partner': ApiPartnerPartner;

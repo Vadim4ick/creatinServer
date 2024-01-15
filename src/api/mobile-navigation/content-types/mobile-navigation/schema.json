@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "mobile_navigations",
+  "info": {
+    "singularName": "mobile-navigation",
+    "pluralName": "mobile-navigations",
+    "displayName": "MobileNavigation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "mobileLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "ui.mobile-link"
+    }
+  }
+}

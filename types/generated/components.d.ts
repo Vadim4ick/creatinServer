@@ -374,10 +374,24 @@ export interface UiLink extends Schema.Component {
   collectionName: 'components_ui_links';
   info: {
     displayName: 'link';
+    description: '';
   };
   attributes: {
     href: Attribute.String & Attribute.Required;
     name: Attribute.String & Attribute.Required;
+  };
+}
+
+export interface UiMobileLink extends Schema.Component {
+  collectionName: 'components_ui_mobile_links';
+  info: {
+    displayName: 'mobileLink';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    href: Attribute.String;
+    subMenuTitle: Attribute.String;
   };
 }
 
@@ -409,6 +423,7 @@ declare module '@strapi/types' {
       'shared.meta-social': SharedMetaSocial;
       'shared.seo': SharedSeo;
       'ui.link': UiLink;
+      'ui.mobile-link': UiMobileLink;
     }
   }
 }

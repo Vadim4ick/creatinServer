@@ -56,6 +56,10 @@
         "image-blocks.text-block"
       ],
       "required": true
+    },
+    "mobileName": {
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_ui_mobile_links",
+  "info": {
+    "displayName": "mobileLink",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "subMenuTitle": {
+      "type": "string"
+    }
+  }
+}
