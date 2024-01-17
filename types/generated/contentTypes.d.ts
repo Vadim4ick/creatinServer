@@ -1073,6 +1073,7 @@ export interface ApiMobileNavigationMobileNavigation extends Schema.SingleType {
   };
   attributes: {
     mobileLink: Attribute.Component<'ui.mobile-link', true>;
+    offersImg: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1211,7 +1212,8 @@ export interface ApiPortfolioPagePortfolioPage extends Schema.SingleType {
   info: {
     singularName: 'portfolio-page';
     pluralName: 'portfolio-pages';
-    displayName: 'PortfolioPage';
+    displayName: 'SEOPortfolioPage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1229,6 +1231,66 @@ export interface ApiPortfolioPagePortfolioPage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::portfolio-page.portfolio-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSeoComplexPageSeoComplexPage extends Schema.SingleType {
+  collectionName: 'seo_complex_pages';
+  info: {
+    singularName: 'seo-complex-page';
+    pluralName: 'seo-complex-pages';
+    displayName: 'SEOComplexPage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::seo-complex-page.seo-complex-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::seo-complex-page.seo-complex-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSeoOffersPageSeoOffersPage extends Schema.SingleType {
+  collectionName: 'seo_offers_pages';
+  info: {
+    singularName: 'seo-offers-page';
+    pluralName: 'seo-offers-pages';
+    displayName: 'SEOOffersPage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::seo-offers-page.seo-offers-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::seo-offers-page.seo-offers-page',
       'oneToOne',
       'admin::user'
     > &
@@ -1363,7 +1425,8 @@ export interface ApiServicesPageServicesPage extends Schema.SingleType {
   info: {
     singularName: 'services-page';
     pluralName: 'services-pages';
-    displayName: 'ServicesPage';
+    displayName: 'SEOServicesPage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1458,6 +1521,8 @@ declare module '@strapi/types' {
       'api::offers-page.offers-page': ApiOffersPageOffersPage;
       'api::partner.partner': ApiPartnerPartner;
       'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
+      'api::seo-complex-page.seo-complex-page': ApiSeoComplexPageSeoComplexPage;
+      'api::seo-offers-page.seo-offers-page': ApiSeoOffersPageSeoOffersPage;
       'api::service.service': ApiServiceService;
       'api::service-collection.service-collection': ApiServiceCollectionServiceCollection;
       'api::service-name.service-name': ApiServiceNameServiceName;

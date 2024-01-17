@@ -4,7 +4,8 @@
   "info": {
     "singularName": "portfolio-page",
     "pluralName": "portfolio-pages",
-    "displayName": "PortfolioPage"
+    "displayName": "SEOPortfolioPage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

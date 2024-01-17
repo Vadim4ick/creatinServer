@@ -11,9 +11,6 @@
     },
     "href": {
       "type": "string"
-    },
-    "subMenuTitle": {
-      "type": "string"
     }
   }
 }

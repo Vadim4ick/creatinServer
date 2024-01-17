@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "services_pages",
+  "collectionName": "seo_offers_pages",
   "info": {
-    "singularName": "services-page",
-    "pluralName": "services-pages",
-    "displayName": "SEOServicesPage",
-    "description": ""
+    "singularName": "seo-offers-page",
+    "pluralName": "seo-offers-pages",
+    "displayName": "SEOOffersPage"
   },
   "options": {
     "draftAndPublish": true

@@ -391,7 +391,6 @@ export interface UiMobileLink extends Schema.Component {
   attributes: {
     name: Attribute.String;
     href: Attribute.String;
-    subMenuTitle: Attribute.String;
   };
 }
 
