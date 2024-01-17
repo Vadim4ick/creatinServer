@@ -800,6 +800,7 @@ export interface ApiCaseCase extends Schema.CollectionType {
     > &
       Attribute.Required;
     mobileName: Attribute.String & Attribute.Required;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -871,6 +872,8 @@ export interface ApiComplexComplex extends Schema.CollectionType {
     >;
     footer: Attribute.Component<'components.footer'>;
     totalHours: Attribute.Integer;
+    videoMobile: Attribute.Media;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1005,6 +1008,7 @@ export interface ApiHomePageHomePage extends Schema.SingleType {
       'oneToMany',
       'api::case.case'
     >;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1108,7 +1112,7 @@ export interface ApiOfferOffer extends Schema.CollectionType {
       Attribute.SetMinMax<{
         max: 99;
       }>;
-    video: Attribute.Media;
+    headingBanner: Attribute.Media;
     banner: Attribute.Media;
     includes_blocks: Attribute.Relation<
       'api::offer.offer',
@@ -1116,6 +1120,7 @@ export interface ApiOfferOffer extends Schema.CollectionType {
       'api::includes-block.includes-block'
     >;
     footer: Attribute.Component<'components.footer'>;
+    seo: Attribute.Component<'shared.seo', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1201,6 +1206,36 @@ export interface ApiPartnerPartner extends Schema.SingleType {
   };
 }
 
+export interface ApiPortfolioPagePortfolioPage extends Schema.SingleType {
+  collectionName: 'portfolio_pages';
+  info: {
+    singularName: 'portfolio-page';
+    pluralName: 'portfolio-pages';
+    displayName: 'PortfolioPage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::portfolio-page.portfolio-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::portfolio-page.portfolio-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiServiceService extends Schema.CollectionType {
   collectionName: 'services';
   info: {
@@ -1266,6 +1301,7 @@ export interface ApiServiceCollectionServiceCollection
     Title: Attribute.Component<'sections.section-titles'>;
     name: Attribute.String & Attribute.Required;
     Footer: Attribute.Component<'components.footer'>;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1322,6 +1358,36 @@ export interface ApiServiceNameServiceName extends Schema.CollectionType {
   };
 }
 
+export interface ApiServicesPageServicesPage extends Schema.SingleType {
+  collectionName: 'services_pages';
+  info: {
+    singularName: 'services-page';
+    pluralName: 'services-pages';
+    displayName: 'ServicesPage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::services-page.services-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::services-page.services-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiStudioStudio extends Schema.SingleType {
   collectionName: 'studios';
   info: {
@@ -1342,6 +1408,7 @@ export interface ApiStudioStudio extends Schema.SingleType {
         max: 4;
       }>;
     vacancies: Attribute.Component<'components.vacancies'>;
+    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1390,9 +1457,11 @@ declare module '@strapi/types' {
       'api::offer.offer': ApiOfferOffer;
       'api::offers-page.offers-page': ApiOffersPageOffersPage;
       'api::partner.partner': ApiPartnerPartner;
+      'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
       'api::service.service': ApiServiceService;
       'api::service-collection.service-collection': ApiServiceCollectionServiceCollection;
       'api::service-name.service-name': ApiServiceNameServiceName;
+      'api::services-page.services-page': ApiServicesPageServicesPage;
       'api::studio.studio': ApiStudioStudio;
     }
   }

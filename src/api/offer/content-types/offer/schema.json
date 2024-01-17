@@ -34,13 +34,12 @@
       "required": true,
       "max": 99
     },
-    "video": {
+    "headingBanner": {
       "type": "media",
       "multiple": false,
       "required": false,
       "allowedTypes": [
-        "images",
-        "videos"
+        "images"
       ]
     },
     "banner": {
@@ -61,6 +60,11 @@
       "type": "component",
       "repeatable": false,
       "component": "components.footer"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.seo"
     }
   }
 }
