@@ -873,7 +873,6 @@ export interface ApiComplexComplex extends Schema.CollectionType {
     footer: Attribute.Component<'components.footer'>;
     totalHours: Attribute.Integer;
     videoMobile: Attribute.Media;
-    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1121,7 +1120,6 @@ export interface ApiOfferOffer extends Schema.CollectionType {
       'api::includes-block.includes-block'
     >;
     footer: Attribute.Component<'components.footer'>;
-    seo: Attribute.Component<'shared.seo', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1231,6 +1229,37 @@ export interface ApiPortfolioPagePortfolioPage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::portfolio-page.portfolio-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSeoCollectionServiceSeoCollectionService
+  extends Schema.SingleType {
+  collectionName: 'seo_collection_services';
+  info: {
+    singularName: 'seo-collection-service';
+    pluralName: 'seo-collection-services';
+    displayName: 'SEOCollectionService';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    seo: Attribute.Component<'shared.seo'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::seo-collection-service.seo-collection-service',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::seo-collection-service.seo-collection-service',
       'oneToOne',
       'admin::user'
     > &
@@ -1363,7 +1392,6 @@ export interface ApiServiceCollectionServiceCollection
     Title: Attribute.Component<'sections.section-titles'>;
     name: Attribute.String & Attribute.Required;
     Footer: Attribute.Component<'components.footer'>;
-    seo: Attribute.Component<'shared.seo'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1521,6 +1549,7 @@ declare module '@strapi/types' {
       'api::offers-page.offers-page': ApiOffersPageOffersPage;
       'api::partner.partner': ApiPartnerPartner;
       'api::portfolio-page.portfolio-page': ApiPortfolioPagePortfolioPage;
+      'api::seo-collection-service.seo-collection-service': ApiSeoCollectionServiceSeoCollectionService;
       'api::seo-complex-page.seo-complex-page': ApiSeoComplexPageSeoComplexPage;
       'api::seo-offers-page.seo-offers-page': ApiSeoOffersPageSeoOffersPage;
       'api::service.service': ApiServiceService;

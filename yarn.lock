@@ -9321,6 +9321,11 @@
   "resolved" "https://registry.npmjs.org/statuses/-/statuses-1.5.0.tgz"
   "version" "1.5.0"
 
+"strapi-plugin-multi-select@^1.2.3":
+  "integrity" "sha512-l5y5N3Hi1RcfRAtmQcAIn5u81amAQ+azWKgLcdzI1i3Hm5AZRCcZbtNDXb4ETsZUw7jvktRrD7F5QYOwzc8fiw=="
+  "resolved" "https://registry.npmjs.org/strapi-plugin-multi-select/-/strapi-plugin-multi-select-1.2.3.tgz"
+  "version" "1.2.3"
+
 "stream-chain@^2.2.5", "stream-chain@2.2.5":
   "integrity" "sha512-1TJmBx6aSWqZ4tx7aTpBDXK0/e2hhcNSTV8+CbFJtDjbb+I1mZ8lHit0Grw9GRT+6JbIrrDd8esncgBi8aBXGA=="
   "resolved" "https://registry.npmjs.org/stream-chain/-/stream-chain-2.2.5.tgz"

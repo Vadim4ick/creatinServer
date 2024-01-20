@@ -35,13 +35,14 @@
       "required": true,
       "default": "gridImage"
     },
-    "streech": {
-      "type": "enumeration",
-      "enum": [
+    "selectStreech": {
+      "type": "customField",
+      "options": [
         "left",
         "right"
       ],
-      "default": "left"
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
     }
   }
 }

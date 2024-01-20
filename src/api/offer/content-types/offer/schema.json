@@ -60,11 +60,6 @@
       "type": "component",
       "repeatable": false,
       "component": "components.footer"
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.seo"
     }
   }
 }

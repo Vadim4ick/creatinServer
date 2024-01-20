@@ -10,14 +10,6 @@
       "type": "string",
       "required": true
     },
-    "level": {
-      "type": "enumeration",
-      "enum": [
-        "middle",
-        "junior",
-        "senoir"
-      ]
-    },
     "descriptionVacancy": {
       "type": "richtext",
       "required": true
@@ -29,6 +21,16 @@
     "telegrammLink": {
       "type": "string",
       "required": false
+    },
+    "selectLevel": {
+      "type": "customField",
+      "options": [
+        "middle",
+        "junior",
+        "senoir"
+      ],
+      "required": true,
+      "customField": "plugin::multi-select.multi-select"
     }
   }
 }

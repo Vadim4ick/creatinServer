@@ -137,9 +137,12 @@ export interface ElementsIntroCard extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required;
     info: Attribute.String;
-    class: Attribute.Enumeration<
-      ['folders', 'spiral', '__image--group', 'graph', 'trust', 'achievement']
-    >;
+    selectClass: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['folders', 'spiral', '__image--group', 'graph', 'trust', 'achievement']
+      >;
   };
 }
 
@@ -179,10 +182,15 @@ export interface ElementsVacancy extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    level: Attribute.Enumeration<['middle', 'junior', 'senoir']>;
     descriptionVacancy: Attribute.RichText & Attribute.Required;
     btnLink: Attribute.String;
     telegrammLink: Attribute.String;
+    selectLevel: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['middle', 'junior', 'senoir']
+      >;
   };
 }
 
@@ -214,8 +222,12 @@ export interface ImageBlocksGridImage extends Schema.Component {
     idBlock: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'gridImage'>;
-    streech: Attribute.Enumeration<['left', 'right']> &
-      Attribute.DefaultTo<'left'>;
+    selectStreech: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['left', 'right']
+      >;
   };
 }
 
@@ -244,10 +256,14 @@ export interface ImageBlocksTextBlock extends Schema.Component {
     idBlock: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'textBlock'>;
-    type: Attribute.Enumeration<['textBlock', 'titleBlock', 'infoBlock']> &
-      Attribute.DefaultTo<'textBlock'>;
     title: Attribute.RichText & Attribute.Required;
     desctopMaxWidth: Attribute.Integer;
+    selectType: Attribute.JSON &
+      Attribute.Required &
+      Attribute.CustomField<
+        'plugin::multi-select.multi-select',
+        ['textBlock', 'titleBlock', 'infoBlock']
+      >;
   };
 }
 

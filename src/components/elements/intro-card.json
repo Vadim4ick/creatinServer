@@ -13,16 +13,18 @@
     "info": {
       "type": "string"
     },
-    "class": {
-      "type": "enumeration",
-      "enum": [
+    "selectClass": {
+      "type": "customField",
+      "options": [
         "folders",
         "spiral",
         "__image--group",
         "graph",
         "trust",
         "achievement"
-      ]
+      ],
+      "customField": "plugin::multi-select.multi-select",
+      "required": true
     }
   }
 }
